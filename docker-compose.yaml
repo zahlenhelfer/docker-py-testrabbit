@@ -1,16 +1,8 @@
-version: '3.8'
 services:
-  rabbitmq:
-    image: rabbitmq:3-management
-    ports:
-      - "5672:5672"
-      - "15672:15672"  # for web UI
-
   tester:
-    build: .
+    image: ghcr.io/zahlenhelfer/docker-py-testrabbit:latest
     environment:
-      RABBITMQ_HOST: rabbitmq
-      RABBITMQ_USER: guest
-      RABBITMQ_PASS: guest
-    depends_on:
-      - rabbitmq
+      RABBITMQ_HOST: ${RABBITMQ_HOST}
+      RABBITMQ_PORT: ${RABBITMQ_PORT}
+      RABBITMQ_USER: ${RABBITMQ_USER}
+      RABBITMQ_PASS: ${RABBITMQ_PASS}
