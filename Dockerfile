@@ -2,7 +2,8 @@
 FROM python:3.13-slim
 
 # Install pika
-RUN pip install --no-cache-dir pika
+COPY requirements.txt /app/
+RUN pip install --no-cache-dir -r /app/requirements.txt
 
 # Copy the test script
 COPY test_rabbitmq.py /app/test_rabbitmq.py
