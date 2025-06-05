@@ -1,3 +1,4 @@
+# now with python-lib-scan
 version: 2
 updates:
   - package-ecosystem: "docker" # See documentation for possible values
